@@ -89,7 +89,11 @@ def post_edit(request, username, post_id):
         post.save()
         return redirect('posts:post', username=post.author, post_id=post.id)
     if request.user == post.author:
-        return render(request, 'posts/new.html', {'form': form, 'text': text})
+        return render(
+            request,
+            'posts/new.html',
+            {'form': form, 'text': text, 'post': post}
+        )
     return redirect('posts:post', username=post.author, post_id=post.id)
 
 
