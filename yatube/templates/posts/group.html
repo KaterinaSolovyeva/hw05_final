@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Записи сообщества {{ group.title }}{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+  {% load thumbnail %}
+    <main>
+      <div class="container py-5">        
+        <h1>{{ group.title }}</h1>
+        <p>{{ group.description }}</p>
+        {% for post in page %}
+          {% include "includes/post_item.html" with post=post %}
+        {% empty %}
+          <li>В группе пока ничего не написали.</li>
+        {% endfor %}       
+
+        {% include "includes/paginator.html" %}
+      </div>
+    </main>
+{% endblock %}

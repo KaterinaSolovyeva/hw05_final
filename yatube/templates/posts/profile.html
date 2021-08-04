@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Записи {{ author.get_full_name }}{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+ {% load thumbnail %}
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-3 mb-3 mt-1">
+        {% include 'includes/author_card.html' %}
+      </div>
+  
+      <div class="col-md-9">
+        {% for post in page %}
+          {% include "includes/post_item.html" with post=post %}
+        {% empty %}
+          <li>{{ author.get_full_name }} пока ничего не написал.</li>
+        {% endfor %}
+        {% include "includes/paginator.html" %}
+      </div>
+    </div>
+  </main>
+  
+{% endblock %} 

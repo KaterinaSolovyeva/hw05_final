@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Технологии{% endblock %}
+{% block content %}
+{% load static %}
+  <div class="row">
+    <!-- Левый вспомогательный блок -->
+    <div class="col-md-3 mb-3 mt-1">
+      <div class="card">
+        <div class="card-body">
+          <div class="h6 text-muted">
+            <img src="{% static 'img/books.png' %}" width="200" height="280" 
+        alt='Мои учебники'>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Тело страницы -->
+    <div class="col-md-9">
+      <div class="card-body">
+        <div class="card-text">
+          <p>Учебники, которые мне очень помогают (конец июля 2021): </p>
+          <ul>
+            <li>Марк Лутц "Изучаем Python" том 1,2</li>
+            <li> Эрик Мэтиз "Изучаем Python"</li>
+            <li>Антонио Меле "Django 2 в примерах"</li>
+            <li>Элизабет Робсон, Эрик Фримен "Изучаем HTML"</li>
+            <li>Бен Форта "SQL"</li>
+            <li>Уильям Шоттс "Командная строка Linux</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %} 

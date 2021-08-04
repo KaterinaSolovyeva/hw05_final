@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+{% load static %}
+  <div class="row">
+    <!-- Левый вспомогательный блок -->
+    <div class="col-md-3 mb-3 mt-1">
+      <div class="card">
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="h3">
+                Об авторе
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="h6 text-muted">
+                <p>Екатерина Соловьёва</p>
+              </div>
+            <li class="list-group-item">
+              <div class="h6 text-muted">
+                 <a href="https://github.com/KaterinaSolovyeva">
+                  <img src="{% static 'img/github.png' %}" width="30" height="30" 
+                  alt='Ссылка на GitHub'> Мой аккаунт Github</a>
+                 <br><br>
+                 <a href="https://www.instagram.com/katerinasolovyeva">
+                  <img src="{% static 'img/insta-min.png' %}" width="30" height="30" 
+                  alt="Ссылка на инстаграм"> Мой Инстаграм</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Тело страницы -->
+    <div class="col-md-9">
+      <div class="card-body">
+        <div class="card-text">
+          <p>В прошлом году я захотела сменить профессию, почекала свои преференции и вот, 
+            что получила: </p>
+          <ul>
+            <li>Закончила Лицей Информационных технологий</li>
+            <li> Выпустилась из академии с красным дипломом экономиста</li>
+            <li>Люблю математику, решаю задачки в свободное время</li>
+            <li>Очень усидчивая</li>
+            <li>Люблю постоянно учить новое, фанат нон-фикшн</li>
+          </ul>
+          <p>Хочу интересную работу, образованных людей вокруг, и чтобы дочь мною гордилась.<br>
+            Вывод: стану программистом.<br><br>
+            <a href="{% url 'about:tech' %}">Какие книги я прочитала и перечитываю в 2021 году для своей цели</a>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %} 

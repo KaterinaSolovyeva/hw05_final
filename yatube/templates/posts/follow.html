@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Посты авторов, на которых вы подписаны{% endblock %}
+{% block header %}<h1></h1>{% endblock %}
+{% block content %}
+  <main>
+    <div class="container py-5">
+
+      {% include "includes/menu.html" with follow=True %}      
+
+      {% for post in page %}
+        {% include "includes/post_item.html" with post=post %}
+      {% empty %}
+        <li>Подпишитесь на кого-нибудь, кто что-нибудь написал, 
+            и его посты появятся здесь</li>
+      {% endfor %}
+
+      {% include "includes/paginator.html" with items=page paginator=paginator %}
+    </div>
+  </main>
+{% endblock %}
