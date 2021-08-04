@@ -6,6 +6,7 @@ static/
 yatube/static
 yatube/posts/static
 yatube/media
+yatube/about/static
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
