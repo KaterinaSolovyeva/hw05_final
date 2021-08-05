@@ -61,7 +61,7 @@ class CommentModelTest(TestCase):
 
     def test_object_name_is_title_field(self):
         """
-        __str__  comment - это строчка с первыми 
+        __str__  comment - это строчка с первыми
         15 символами comment.text.
         """
         comment = CommentModelTest.comment

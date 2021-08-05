@@ -211,7 +211,7 @@ class PostPagesTests(TestCase):
             response.context['post'].image,
             PostPagesTests.post.image
         )
-    
+
     def test_new_post_pages_show_correct_context(self):
         """Шаблон add_comment сформирован с правильным контекстом."""
         response = self.author_client.get(PostPagesTests.URLS[2])
