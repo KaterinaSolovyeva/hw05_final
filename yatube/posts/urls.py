@@ -5,12 +5,10 @@ from . import views
 app_name = 'posts'
 
 urlpatterns = [
-    path('404', views.page_not_found, name='404'),
-    path('500', views.server_error, name='500'),
     path('group/<slug:slug>/', views.group_posts, name='group_posts'),
     path('new/', views.new_post, name='new_post'),
     path('', views.index, name='index'),
-    path("follow/", views.follow_index, name='follow_index'),
+    path('follow/', views.follow_index, name='follow_index'),
     path('<str:username>/', views.profile, name='profile'),
     path(
         '<username>/<int:post_id>/comment/',

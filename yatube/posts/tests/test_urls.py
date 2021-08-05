@@ -16,7 +16,9 @@ URL_NAMES = {
     'for_authorized_users': (
         '/new/',
         f'/{USERNAMES["author"]}/{POST_ID}/edit/',
-        f'/{USERNAMES["author"]}/{POST_ID}/comment/'
+        f'/{USERNAMES["author"]}/{POST_ID}/comment/',
+        f'/{USERNAMES["author"]}/follow/',
+        f'/{USERNAMES["author"]}/unfollow/',
     )
 }
 TEMPLATES_URL_NAMES = {

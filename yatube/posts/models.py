@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.db.models.constraints import UniqueConstraint
 
 User = get_user_model()
 
@@ -68,7 +69,7 @@ class Comment(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='comments',
-        verbose_name='Автор'
+        verbose_name='Автор комментария'
     )
     text = models.TextField('Текст комментария')
     created = models.DateTimeField('Дата комментария', auto_now_add=True)
@@ -93,6 +94,12 @@ class Follow(models.Model):
         related_name='following',
         on_delete=models.CASCADE
     )
+
+    class Meta:
+        """Дополнительная информация по управлению моделью Follow."""
+        constraints = [
+            UniqueConstraint(fields=['user', 'author'], name='follow_unique'),
+        ]
 
     def __str__(self) -> str:
         return f'{self.user} подписан на {self.author}'

@@ -89,6 +89,10 @@ class PostPagesTests(TestCase):
                 'posts:post',
                 kwargs={'username': cls.post.author, 'post_id': cls.post.id}
             ),
+            reverse(
+                'posts:add_comment',
+                kwargs={'username': cls.post.author, 'post_id': cls.post.id}
+            ),
         )
 
     @classmethod
@@ -207,6 +211,17 @@ class PostPagesTests(TestCase):
             response.context['post'].image,
             PostPagesTests.post.image
         )
+    
+    def test_new_post_pages_show_correct_context(self):
+        """Шаблон add_comment сформирован с правильным контекстом."""
+        response = self.author_client.get(PostPagesTests.URLS[2])
+        form_fields = {
+            'text': forms.fields.CharField,
+        }
+        for value, expected in form_fields.items():
+            with self.subTest(value=value):
+                form_field = response.context['form'].fields[value]
+                self.assertIsInstance(form_field, expected)
 
     def test_cache_index_page(self):
         """Список записей хранится в кэше и обновлялся раз в 20 секунд."""
